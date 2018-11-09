@@ -1,0 +1,57 @@
+<div class="players">
+
+  <header>
+    <h2><a href="#"></a></h2>
+    <nav>
+      <li><a [routerLink]="['/']">Home</a></li>
+      <li><a [routerLink]="['/players']">Players</a></li>
+      <li><a [routerLink]="['/players/new']">Add Player</a></li>
+    </nav>
+  </header>
+  <section class="hero">
+    <div class="background-image" style="background-image: url(/assets/img/jersey.jpg);"></div>
+    <div class="body" style="text-align:center">
+      <table class="center">
+        <thead>
+          <th> </th>
+          <th>
+            <button (click)="sortSquadnum(1)">↑</button>
+            <button (click)="sortSquadnum(-1)">↓</button>
+          </th>
+          <th>
+            <button (click)="sortName(1)">↑</button>
+            <button (click)="sortName(-1)">↓</button>
+          </th>
+          <th>
+            <button (click)="sortNationality(1)">↑</button>
+            <button (click)="sortNationality(-1)">↓</button>
+          </th>
+          <th>
+            <button (click)="sortMktval(1)">↑</button>
+            <button (click)="sortMktval(-1)">↓</button>
+          </th>
+          <th>
+            <button (click)="sortPosition(1)">↑</button>
+            <button (click)="sortPosition(-1)">↓</button>
+          </th>
+          <th> </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of player_list">
+            <td><img src="{{player.url}}" alt="{{ player.name }}"></td>
+            <td>{{ player.squadnum }}</td>
+            <td >{{ player.name }}</td>
+            <td><img class="country" src="{{player.nationality}}" alt="{{ player.squadnum }}"></td>
+            <td> {{ player.mktval | currency:'EUR':true:'1.0-2' }} M</td>
+            <td>{{ player.position }}</td>
+            <td>
+              <button class="edit" [routerLink]="['/edit/', player._id]">Edit</button>
+              <button class="delete" (click)="delete(player._id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+</div>

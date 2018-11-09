@@ -1,0 +1,38 @@
+<div class="newplayer">
+
+    <header>
+      <h2><a href="#"></a></h2>
+      <nav>
+        <li><a [routerLink]="['/']">Home</a></li>
+        <li><a [routerLink]="['/players']">Players</a></li>
+        <li><a [routerLink]="['/players/new']">Add Player</a></li>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="background-image" style="background-image: url(/assets/img/anfield.jpg);"></div>
+      <div class="body" style="text-align:center">
+        <p>Ch-ch-ch Change!</p>
+        <form (submit)="updatePlayer()">
+          <p>Name: <input type="text" placeholder="player.name" name="player.name" [(ngModel)]="player.name"></p>
+          <p>Squad Number: <input type="text" placeholder="player.squadnum" name="player.squadnum" [(ngModel)]="player.squadnum"></p>
+          <p>Image url: <input type="text" placeholder="player.url" name="player.url" [(ngModel)]="player.url"></p>
+          <p>Nationality url: <input type="text" placeholder="player.nationality" name="player.nationality" [(ngModel)]="player.nationality"></p>
+          <p>Market Value: <input type="number" placeholder="player.mktval" name="player.mktval" [(ngModel)]="player.mktval"></p>
+          <p>Position: 
+            <select name="player.position" [(ngModel)]="player.position" placeholder="player.position" type="text">
+              <option value="Forward">Forward</option>
+              <option value="Midfielder">Midfielder</option>
+              <option value="Defender">Defender</option>
+              <option value="Goalkeeper">Goalkeeper</option>
+            </select>
+          </p>
+          <p>
+            <button class="update" type="submit">Update</button>
+            <button class="reset" (click)="reset()">Reset</button>
+          </p>
+          <!-- <button *ngIf="name.valid && squadnum.valid && url.valid">CREATE</button> -->
+        </form>
+      </div>
+  
+    </section>
+  </div>
